@@ -9,9 +9,4 @@ def create_cmdarg():
     return args
 
 if __name__ == '__main__':
-    try:
-        create_cmdarg()
-    catch:
-    
-    print base
-    print exponent
+    create_cmdarg()
