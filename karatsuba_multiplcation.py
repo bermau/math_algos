@@ -2,7 +2,7 @@ import argparse
 
 def create_cmdarg():
     parser = argparse.ArgumentParser(description='Muliple Two numbers')
-    parser.add_argument('num1', type=float, help='First Value')
+    parser.add_argument('num1', type=int, help='First Value')
     parser.add_argument('num2', type=int, help='Second Value')
     args = parser.parse_args()
     return (args.num1, args.num2)
