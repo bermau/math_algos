@@ -22,3 +22,12 @@ if __name__ == "__main__":
 			break
 	e = r
 	print("e = %d" % e)
+
+	d = (1 + n1)/e
+	print("d = %d" % d)
+
+	m = input("Enter message: ")
+	c = (pow(m, e)) % n
+	print("Encrypted message = %d" % c)
+	m1 = (pow(c, p)) % n
+	print("Decrypted message = %d" % m1)
