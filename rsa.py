@@ -3,7 +3,9 @@ import math
 
 def is_prime(x):
 	i = 2
-	while i <= math.sqrt(x):
+	root = math.ceil(math.sqrt(x))
+	print (root)
+	while i <= root:
 		if x % i == 0:
 			return False
 		i += 1
