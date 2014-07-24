@@ -16,12 +16,11 @@ def gcd(a, b):
 	return a
 
 def egcd(a, b):
-	x, y, u, v = 0, 1, 1, 0
-	while a != 0:
-		q, r = b//a, b%a
-		m, n = x-u*q, y-v*q
-		b,a,x,y,u,v = a,r,u,v,m,n
-	return b,x,y
+	if a == 0:
+		return (b, 0, 1)
+	else:
+		g, y, x = egcd(b % a, a)
+		return (g, x - (b // a) * y, y)
 
 def modinv(a,m):
 	g,x,y = egcd(a,m)
@@ -47,14 +46,11 @@ if __name__ == "__main__":
 
 	e = r
 	print("e = %d" % e)
-	# d = (1 + n1)/e
 	d = modinv(e, n1)
 	print("d = %d" % d)
 
 	m = input("Enter message: ")
-	for x in m:
-		print (int(x));
-	c = (pow(m, e)) % n
+	c = (m**e) % n
 	print("Encrypted message = %d" % c)
-	m1 = (pow(c, d)) % n
+	m1 = (c**d) % n
 	print("Decrypted message = %d" % m1)
