@@ -2,11 +2,15 @@ from random import randint
 import math
 
 def generate_prime():
+	x = randint(2, 9999)
 	while True:
-		x = randint(2, 999)
+		print(x)
 		if is_prime(x):
 			break
+		else:
+			x += 1
 	return x
+
 def is_prime(x):
 	i = 2
 	root = math.ceil(math.sqrt(x))
