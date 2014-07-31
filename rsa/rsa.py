@@ -2,9 +2,8 @@ from random import randint
 import math
 
 def generate_prime():
-	x = randint(2, 9999)
+	x = randint(100, 999)
 	while True:
-		print(x)
 		if is_prime(x):
 			break
 		else:
