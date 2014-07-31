@@ -1,8 +1,9 @@
+# coding=utf-8
 from random import randint
 import math
 
 def generate_prime():
-	x = randint(100, 999)
+	x = randint(100, 9999)
 	while True:
 		if is_prime(x):
 			break
@@ -39,6 +40,7 @@ def modinv(a,m):
 		return x%m
 
 if __name__ == "__main__":
+	# choose 2 distinct primes
 	p = generate_prime()
 	while True:
 		q = generate_prime()
@@ -46,22 +48,32 @@ if __name__ == "__main__":
 			break
 	print("p = %d" % p)
 	print("q = %d" % q)
+	# compute n = pq
 	n = p * q
+	# compute φ(n)
 	n1 = (p - 1) * (q - 1)
 
+	# Choose 1 < e < φ(n), which is coprime to φ(n)
 	while True:
-		r = randint(2,n1)
+		r = randint(2,100) # For efficiency 2 < e < 100
 		if is_prime(r):
 			if gcd(r, n1) == 1:
 				break
-
 	e = r
 	print("e = %d" % e)
+
+	# Compute d, the modular multiplicative inverse of e (mod φ(n))
 	d = modinv(e, n1)
 	print("d = %d" % d)
 
 	m = input("Enter message: ")
+
+	# Encryption of m
 	c = (m**e) % n
 	print("Encrypted message = %d" % c)
+
+	# Decryption of m
 	m1 = (c**d) % n
 	print("Decrypted message = %d" % m1)
+
+
