@@ -1,6 +1,12 @@
 from random import randint
 import math
 
+def generate_prime():
+	while True:
+		x = randint(2, 999)
+		if is_prime(x):
+			break
+	return x
 def is_prime(x):
 	i = 2
 	root = math.ceil(math.sqrt(x))
@@ -30,13 +36,15 @@ def modinv(a,m):
 		return x%m
 
 if __name__ == "__main__":
-	p = int(input("Enter p: "))
-	q = int(input("Enter q: "))
+	p = generate_prime()
+	while True:
+		q = generate_prime()
+		if q != p:
+			break
+	print("p = %d" % p)
+	print("q = %d" % q)
 	n = p * q
 	n1 = (p - 1) * (q - 1)
-
-	print (n)
-	print (n1)
 
 	while True:
 		r = randint(2,n1)
