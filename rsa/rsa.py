@@ -54,11 +54,12 @@ if __name__ == "__main__":
 	n1 = (p - 1) * (q - 1)
 
 	# Choose 1 < e < φ(n), which is coprime to φ(n)
+	r = randint(2,100) # For efficiency 2 < e < 100
 	while True:
-		r = randint(2,100) # For efficiency 2 < e < 100
-		if is_prime(r):
-			if gcd(r, n1) == 1:
+		if gcd(r, n1) == 1:
 				break
+		else:
+			r += 1
 	e = r
 	print("e = %d" % e)
 
